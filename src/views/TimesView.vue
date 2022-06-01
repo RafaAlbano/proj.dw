@@ -1,4 +1,4 @@
 <template>
-  <main>Jogadores</main>
+  <main>Times</main>
   <footer>Rodapé</footer>
 </template>
