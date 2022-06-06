@@ -5,7 +5,9 @@ import RodapeCom from "./components/template/RodapeCom.vue";
 
 <template>
   <HeaderComp />
-  <RouterView />
+  <main>
+    <RouterView />
+  </main>
   <RodapeCom />
 </template>
 
@@ -15,7 +17,7 @@ import RodapeCom from "./components/template/RodapeCom.vue";
 #app {
   max-width: 1280px;
   margin: 0 auto;
-  height: 100vh;
+  height: 95vh;
 
   font-weight: normal;
 }
