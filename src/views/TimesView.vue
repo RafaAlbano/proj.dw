@@ -1,32 +1,31 @@
 <script>
+import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 export default {
   data() {
     return {
-      times: [
-        { id: "61230be1-5988-4506-b5cc-034d275ea2af", nome: "Time 1" },
-        { id: "75f3e938-fd69-4214-b479-6ed45144f404", nome: "Time 2" },
-        { id: "dadba913-a14c-4dc4-a01a-432460fb90f5", nome: "Time 3" },
-      ],
+      times: [],
       novo_time: "",
     };
   },
+  async created() {
+    const times = await axios.get("http://localhost:4000/times");
+    this.times = times.data;
+  },
   methods: {
-    salvar() {
-      if (this.novo_time !== "") {
-        const novo_id = uuidv4();
-        this.times.push({
-          id: novo_id,
-          nome: this.novo_time,
-        });
-        this.novo_time = "";
-      }
+    async salvar() {
+      const time = {
+        nome: this.novo_time,
+      };
+      const time_criado = await axios.post("http://localhost:4000/times", time);
+      this.times.push(time_criado.data);
     },
-    excluir(time) {
+    async excluir(time) {
+      await axios.delete(`http://localhost:4000/times/${time.id}`);
       const indice = this.times.indexOf(time);
       this.times.splice(indice, 1);
     },
-  },
+  }
 };
 </script>
 <template>
@@ -66,17 +65,20 @@ export default {
   text-align: center;
   margin: 2rem 0;
 }
+
 .form_input {
   display: flex;
   justify-content: center;
   margin: 2rem 0;
 }
+
 .form_input input {
   width: 50%;
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 10px;
 }
+
 .form_input button {
   padding: 0.5rem;
   width: 15%;
@@ -87,10 +89,12 @@ export default {
   font-weight: bold;
   margin-left: 1%;
 }
+
 .list_times {
   display: flex;
   justify-content: center;
 }
+
 table {
   width: 50%;
   border-collapse: collapse;
@@ -99,10 +103,12 @@ table {
   font-size: 1.1rem;
   text-align: center;
 }
+
 table thead {
   background-color: rgb(103, 159, 207);
   color: white;
 }
+
 table tbody tr:nth-child(odd) {
   background-color: rgb(151, 189, 223);
   color: white;
