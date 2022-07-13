@@ -35,7 +35,7 @@ export default {
     </div>
     <div class="form-input">
       <input type="text" placeholder="Jogador" v-model="jogador.nome" />
-      <input type="text" placeholder="Ano nascimento" v-model="jogador.anoNascimento" />
+      <input type="text" placeholder="Ano nascimento" v-model="jogador.anoNascimento" /> 
       <input type="text" placeholder="Posicao de Jogo" v-model="jogador.posicaoJogo" />
       <select v-model="jogador.timeId">
         <option v-for="time in times" :key="time.id" :value="time.id">
