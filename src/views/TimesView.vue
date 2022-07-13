@@ -1,6 +1,5 @@
 <script>
 import axios from "axios";
-import { v4 as uuidv4 } from "uuid";
 export default {
   data() {
     return {
@@ -25,7 +24,7 @@ export default {
       const indice = this.times.indexOf(time);
       this.times.splice(indice, 1);
     },
-  }
+  },
 };
 </script>
 <template>
