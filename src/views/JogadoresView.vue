@@ -16,7 +16,7 @@ export default {
   methods: {
     async buscarTodosOsJogadores() {
       const jogadores = await axios.get(
-        "http://localhost:4000/jogadores?expand=time"
+        "http://localhost:4000/jogadores"
       );
       this.jogadores = jogadores.data;
     },
@@ -35,7 +35,7 @@ export default {
     </div>
     <div class="form-input">
       <input type="text" placeholder="Jogador" v-model="jogador.nome" />
-      <input type="text" placeholder="Ano nascimento" v-model="jogador.anoNascimento" /> 
+      <input type="text" placeholder="Ano nascimento" v-model="jogador.anoNascimento" />
       <input type="text" placeholder="Posicao de Jogo" v-model="jogador.posicaoJogo" />
       <select v-model="jogador.timeId">
         <option v-for="time in times" :key="time.id" :value="time.id">
@@ -62,7 +62,7 @@ export default {
             <td>{{ jogador.nome }}</td>
             <td>{{ jogador.anoNascimento }}</td>
             <td>{{ jogador.posicaoJogo }}</td>
-            <td>{{ jogador.time.nome }}</td>
+            <td>jjjjj</td>
             <td>???</td>
           </tr>
         </tbody>
