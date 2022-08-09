@@ -1,3 +1,3 @@
 <template>
-  <main>Bem Vindos!</main>
+  <main>Bem Vindos! teste1</main>
 </template>

@@ -14,7 +14,7 @@
 </template>
 <style>
 header {
-  height: 10%;
+  height: 12%;
   background-color: rgb(82, 65, 94);
   color: rgb(252, 244, 244);
   font-size: 1.3em;
